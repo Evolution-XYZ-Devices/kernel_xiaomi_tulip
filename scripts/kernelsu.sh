@@ -20,7 +20,7 @@ function parse_parameters()
 function do_stable()
 {
    if ! [ -d $KERNELSU ]; then
-       git clone https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
+       git clone --depth=1 https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
        git -C $KERNELSU checkout $(git -C $KERNELSU describe --abbrev=0 --tags) > /dev/null 2>&1
    fi
 }
@@ -28,14 +28,14 @@ function do_stable()
 function do_devel()
 {
    if ! [ -d $KERNELSU ]; then
-       git clone https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
+       git clone --depth=1 https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
    fi
 }
 
 function do_older()
 {
    if ! [ -d $KERNELSU ]; then
-       git clone https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
+       git clone --depth=1 https://github.com/tiann/KernelSU.git $KERNELSU > /dev/null 2>&1
        git -C $KERNELSU checkout $action > /dev/null 2>&1
    fi
 }
